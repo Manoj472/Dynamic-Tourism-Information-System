@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block content %}
+ 
+{# Pass session city to JS without a page reload #}
+<div id="page-data" data-city="{{ city_name }}" style="display:none;"></div>
+ 
+<!-- ── Hero ──────────────────────────────────────────────── -->
+<section id="home" class="hero-wrapper">
+  <div class="container hero-banner d-flex align-items-start justify-content-center text-white text-center">
+    <div class="container mb-4 mt-5 pt-5">
+      <div id="state-detecting">
+        <h1 id="detected-city" class="hero-text">Detecting your location…</h1>
+        <p class="lead">Discover beaches, hills, heritage, and vibrant culture.</p>
+      </div>
+      <div id="state-found" style="display:none;">
+        <h1 class="hero-text mt-5">Welcome to <span id="hero-city-name"  class="hero-text" ></span></h1>
+        <p class="lead">Your journey begins with extraordinary places.</p>
+      </div>
+      <div id="state-denied" style="display:none;">
+        <h1 class="hero-text">Explore India</h1>
+        <p class="lead" style="color:#fde68a;">Enable location access to get personalised results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── Destination Carousel ──────────────────────────────── -->
+<!-- ── Accommodation ─────────────────────────────────────── -->
+<section class="accommodation-section" id="accommodation">
+  <div class="container">
+    <div class="section-title">
+      <h2>Accommodation Near You</h2>
+    </div>
+   
+    <!-- JS fills this grid; skeletons shown until data arrives -->
+    <div class="accommodation-grid" id="accommodation-grid">
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── Activities ────────────────────────────────────────── -->
+<section id="activities">
+  <div class="container">
+    <div class="section-title"><h2>Activities</h2></div>
+    <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="outdoor-adventure">Outdoor &amp; Adventure</button>
+      <button class="filter-btn" data-filter="mindfulness">Mindfulness</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="entertainment">Entertainment</button>
+      <button class="filter-btn" data-filter="nature">Nature</button>
+    </div>
+ 
+    <!-- JS fills this; skeletons shown until data arrives -->
+    <div class="image-grid" id="activities-grid">
+      <div class="skeleton-card"><div class="skeleton skeleton-img tall"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img tall"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img tall"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img tall"></div><div class="skeleton skeleton-line short"></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── Popular Attractions ───────────────────────────────── -->
+<section class="attractions-section" id="attractions-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Popular Attractions Near You</h2>
+    </div>
+
+    <!-- JS fills this; skeletons shown until data arrives -->
+    <div class="attractions-grid" id="attractions-grid">
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── About Vizag ───────────────────────────────────────── -->
+<section id="about-vizag">
+  <div class="container">
+    <div class="section-title">
+      <h2>About <span id="about-city-name">{{ city_name|default:"Your City" }}</span></h2>
+    </div>
+ 
+    <div class="vizag-container" id="about-city-container">
+ 
+      <!-- Image side -->
+      <div class="image-section">
+        <img id="about-city-img"
+             src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/df3ac8e5-64d4-4c90-b979-0e88e75b062f.png"
+             alt="City view" />
+      </div>
+ 
+      <!-- Description side -->
+      <div class="description-section">
+ 
+        <!-- Skeleton shown while loading -->
+        <div id="about-skeleton">
+          <div class="skeleton skeleton-line" style="width:60%; height:20px; margin-bottom:14px;"></div>
+          <div class="skeleton skeleton-line" style="width:100%; margin-bottom:8px;"></div>
+          <div class="skeleton skeleton-line" style="width:100%; margin-bottom:8px;"></div>
+          <div class="skeleton skeleton-line" style="width:90%; margin-bottom:8px;"></div>
+          <div class="skeleton skeleton-line" style="width:80%; margin-bottom:8px;"></div>
+          <div class="skeleton skeleton-line short" style="width:50%; margin-bottom:20px;"></div>
+        </div>
+ 
+        <!-- Actual content injected by JS -->
+        <div id="about-city-content" style="display:none;">
+          <h3 id="about-city-title"></h3>
+          <p id="about-city-desc"></p>
+          <a id="about-city-wiki" href="#" target="_blank"
+             class="wiki-link" style="display:none;">
+            <i class="fas fa-external-link-alt"></i> Read more on Wikipedia
+          </a>
+          <div class="tag-container" id="about-city-tags"></div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+</section>
+ 
+{% endblock %}

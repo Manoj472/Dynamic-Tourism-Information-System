@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/beaches.css' %}">
+ <div class="container">
+        <h1 class="beach-title">World's Most Beautiful Beaches</h1>
+        <div class="row g-4">
+            <!-- Beach 1 -->
+            <div class="col-md-4">
+                <div class="card beach-card">
+                    <img src="{% static 'images/rk1.jpg' %}" class="beach-img" alt="Beach 1">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        <a href="{% url 'rkbeach' %}">Rk Beach</a>  
+                        </h5>
+                        <p class="card-text">Located in Australia, Whitehaven is famous for its crystal-clear waters and pristine white sands.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beach 2 -->
+            <div class="col-md-4">
+                <div class="card beach-card">
+                    <img src="https://www.pexels.com/photo/blue-ocean-waves-1059340/download/" class="beach-img" alt="Beach 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Navagio Beach</h5>
+                        <p class="card-text">A secluded beach in Greece known for its dramatic cliffs and turquoise waters, accessible only by boat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beach 3 -->
+            <div class="col-md-4">
+                <div class="card beach-card">
+                    <img src="https://www.pexels.com/photo/aerial-view-of-seashore-during-daytime-3369564/download/" class="beach-img" alt="Beach 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Anse Source d’Argent</h5>
+                        <p class="card-text">Located in the Seychelles, this beach is known for its pink sand, granite boulders, and shallow waters.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card beach-card">
+                    <img src="https://www.pexels.com/photo/aerial-view-of-seashore-during-daytime-3369564/download/" class="beach-img" alt="Beach 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Anse Source d’Argent</h5>
+                        <p class="card-text">Located in the Seychelles, this beach is known for its pink sand, granite boulders, and shallow waters.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card beach-card">
+                    <img src="https://www.pexels.com/photo/aerial-view-of-seashore-during-daytime-3369564/download/" class="beach-img" alt="Beach 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Anse Source d’Argent</h5>
+                        <p class="card-text">Located in the Seychelles, this beach is known for its pink sand, granite boulders, and shallow waters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}

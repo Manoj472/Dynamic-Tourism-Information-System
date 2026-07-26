@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/base-beaches.css' %}">
+<header>
+    <div class="container">
+      <h1>Exploring Our World</h1>
+      <p class="subtitle">A visual journey through stunning locations</p>
+    </div>
+</header>
+<div class="rk-carousel-wrapper">
+  <div class="rk-carousel-container">
+    <div class="rk-carousel" id="rk-carousel">
+      <div class="rk-slide">
+        <img src="{% static 'images/rk1.jpg' %}" alt="Beach 1">
+      </div>
+      <div class="rk-slide">
+        <img src="{% static 'images/rk2.jpg' %}" alt="Beach 2">
+      </div>
+      <div class="rk-slide">
+        <img src="{% static 'images/rk2.jpg' %}" alt="Beach 3">
+      </div>
+    </div>
+
+    <button class="rk-btn" id="rk-prevBtn">❮</button>
+    <button class="rk-btn" id="rk-nextBtn">❯</button>
+  </div>
+</div>
+
+<div class="rk-content ">
+  <h2>About RK Beach</h2>
+  <p>RK Beach (Rama Krishna Beach) is one of the most popular beaches in Visakhapatnam. It offers stunning views, a pleasant walking path, local food stalls, and attractions like the submarine museum nearby.</p>
+</div>
+
+<script src="{% static 'js/base-beaches.js' %}"></script>
+
+{% endblock %}

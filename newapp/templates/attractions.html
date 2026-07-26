@@ -1,0 +1,21 @@
+<section class="attractions-section">
+    <h2>Nearby Attractions</h2>
+
+    <div class="attractions-grid">
+        {% for attraction in attractions %}
+        <div class="attraction-card">
+            <h3>{{ attraction.properties.name }}</h3>
+
+            <p class="address">
+                {{ attraction.properties.formatted }}
+            </p>
+
+            <p class="category">
+                {{ attraction.properties.categories|join:", " }}
+            </p>
+        </div>
+        {% empty %}
+        <p class="no-data">No attractions found.</p>
+        {% endfor %}
+    </div>
+</section>
