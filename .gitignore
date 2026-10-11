@@ -90,3 +90,5 @@ yarn-error.log*
 *.bak
 *.swp
 .cache/
+__pycache__/
+*.py[cod]
